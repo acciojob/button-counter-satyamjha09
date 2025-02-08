@@ -1,13 +1,21 @@
-
-import React from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+  const [count, setCount] = useState(0);
 
-export default App
+  const handleEvent = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  return (
+    <div className="counter-container">
+      <p className="counter-text">Buttons Clicked {count} times</p>
+      <button className="counter-button" onClick={handleEvent} aria-label="Increment counter">
+        Click me
+      </button>
+    </div>
+  );
+};
+
+export default App;
